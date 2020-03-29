@@ -62,10 +62,7 @@ let fetchThingById (connection: IDbConnection) (thingId: int) (ignoredContinuati
             return Continuation(None)
         | _ ->
             // Pretend we got this from the DB
-            return Continuation
-                       (Some
-                           ({ Id = thingId
-                              Name = "test" }))
+            return Continuation (Some ( { Id = thingId; Name = "test" } ) )
     }
 
 
@@ -77,10 +74,10 @@ let ensureFound (value: 'a option) =
     | Some s -> continuation s
     | None -> respond' HttpStatusCode.NotFound
 
-let formatThing (thing: Thing) =
+let formatResult (value: 'a) =
     async {
-        printfn "formatThing - thing = %A" thing
-        return Response(JsonResult(thing))
+        printfn "formatResult - value = %A" value
+        return Response(JsonResult(value))
     }
 
 
@@ -90,15 +87,16 @@ let getThing (thingId: int) (context: HttpContext): Async<IActionResult> =
         // Create a DB connection
         let! connection = openConnection()
         let response =
-            ((continuation  context) // Seed the pipeline with the HTTP context
-                                                        // Create the response pipeline
-                                                        >>= (
-                                                        // Ensure the user has the given role
-                                                        (ensureUserHasRole connection "admin")
-                                                        >=> (fetchThingById connection thingId) >=> ensureFound
-                                                        >=> formatThing)
-                                                        // If we don't have a response by this point, return an error.
-                                                        |> responseOrError)
+            ((continuation context) // Seed the pipeline with the HTTP context
+             // Create the response pipeline
+             >>= (
+             // Ensure the user has the given role
+             (ensureUserHasRole connection "admin")
+             >=> (fetchThingById connection thingId)
+             >=> ensureFound
+             >=> formatResult)
+             // If we don't have a response by this point, return an error.
+             |> responseOrError)
         // Return the final response
         return! response
     }
