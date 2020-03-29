@@ -1,0 +1,16 @@
+framework: netcoreapp3.1
+source https://api.nuget.org/v3/index.json
+
+nuget FSharp.Core
+nuget Microsoft.AspNetCore.Mvc
+nuget Microsoft.Extensions.Configuration.Json
+nuget Serilog                                               ~> 2.9
+nuget Serilog.AspNetCore                                    ~> 3.2.0
+nuget Serilog.Enrichers.Thread                              ~> 3.1
+nuget Serilog.Extensions.Logging                            ~> 3.0.1
+nuget Serilog.Settings.Configuration                        ~> 3.1
+nuget Serilog.Sinks.ApplicationInsights                     ~> 3.0
+nuget Serilog.Sinks.Console                                 ~> 3.1
+nuget Serilog.Sinks.File                                    ~> 4.0
+nuget Serilog.Sinks.UDP
+

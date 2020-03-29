@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{1AF05A69-1E39-4059-AC44-846DCF4C5B91}"
+	ProjectSection(SolutionItems) = preProject
+		paket.dependencies = paket.dependencies
+	EndProjectSection
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RailwayWebApi", "RailwayWebApi\RailwayWebApi.fsproj", "{BB94C025-8473-46E0-964A-A7536A44A354}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RailwayPlayground", "RailwayPlayground\RailwayPlayground.fsproj", "{DEA8A6A1-7796-4564-92FF-781847C2F827}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BB94C025-8473-46E0-964A-A7536A44A354}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB94C025-8473-46E0-964A-A7536A44A354}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB94C025-8473-46E0-964A-A7536A44A354}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB94C025-8473-46E0-964A-A7536A44A354}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEA8A6A1-7796-4564-92FF-781847C2F827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEA8A6A1-7796-4564-92FF-781847C2F827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEA8A6A1-7796-4564-92FF-781847C2F827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEA8A6A1-7796-4564-92FF-781847C2F827}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

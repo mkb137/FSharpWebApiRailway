@@ -1,0 +1,10 @@
+FSharp.Core
+Serilog
+Serilog.AspNetCore
+Serilog.Enrichers.Thread
+Serilog.Extensions.Logging
+Serilog.Settings.Configuration
+Serilog.Sinks.ApplicationInsights
+Serilog.Sinks.Console
+Serilog.Sinks.File
+Serilog.Sinks.UDP
