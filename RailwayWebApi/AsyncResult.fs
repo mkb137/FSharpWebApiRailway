@@ -12,15 +12,6 @@ let bind f x = async {
     | Error e -> return Error e
     | Ok x'' -> return! f x''
 }
-    
-// Like bind, but where the function doesn't care about the OK argument.
-let bind' f x = async {
-    let! x' = x
-    match x' with
-    | Error e -> return Error e
-    | Ok _ -> return! f
-}
-
 // Async map
 // See https://github.com/fsharp/fsharp/blob/master/src/fsharp/FSharp.Core/result.fs
 let map f x = async {
@@ -29,16 +20,6 @@ let map f x = async {
     | Error e -> return Error e
     | Ok x'' ->
         let! r = f x''
-        return Ok( r )
-}
-
-// Like map, but doesn't care about the input value.
-let map' f x = async {
-    let! x' = x
-    match x' with
-    | Error e -> return Error e
-    | Ok _ ->
-        let! r = f
         return Ok( r )
 }
 
@@ -57,10 +38,6 @@ let mapError f x = async {
 // Async compose
 let compose f1 f2 =
     fun x -> bind f2 (f1 x)
-
-// Like compose, but where the second function doesn't care about the OK argument.
-let compose' f1 f2 =
-    fun x -> bind' f2 (f1 x)
     
 // Async tryThen
 let tryThen f1 f2 =
@@ -89,10 +66,6 @@ let (>>=) a b =
 // compose operator
 let (>=>) a b =
     compose a b
-
-// compose' operator
-let (>->) a b =
-    compose' a b
 
 // tryThen operator
 let inline (<|>) a b =

@@ -15,5 +15,5 @@ type RouteController(logger: ILogger<RouteController>) =
     member __.GetThing(thingId: int): Async<IActionResult> =
         async {
             logger.LogDebug "Get"
-            return! ThingEndpoints2.getThing thingId __.HttpContext
+            return! ThingEndpoints.getThing thingId __.HttpContext
         }
