@@ -80,7 +80,6 @@ let formatResult (value: 'a) =
         return Response(JsonResult(value))
     }
 
-
 // GET /thing/{thingId}
 let getThing (thingId: int) (context: HttpContext): Async<IActionResult> =
     async {
